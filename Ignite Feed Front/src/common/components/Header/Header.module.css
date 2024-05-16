@@ -8,8 +8,23 @@
   flex: 1;
 
   padding: 2rem 0;
+
+  border-bottom: 1px solid var(--gray-600);
 }
 
 .header img {
   height: 3.2rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    position: sticky; 
+    top: 0;
+    z-index: 1;
+    padding: 1rem 0;
+  }
+
+  .header img {
+    height: 2.4rem;
+  }
 }

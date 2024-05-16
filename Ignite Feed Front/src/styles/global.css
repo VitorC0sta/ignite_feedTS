@@ -2,6 +2,7 @@
 
 :root {
   font-size: 62.5%;
+  color-scheme: dark;
 }
 
 :focus {
@@ -14,6 +15,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 body {
   background: var(--gray-900);
