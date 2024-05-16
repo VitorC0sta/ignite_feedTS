@@ -1,3 +1,6 @@
+import { Avatar } from "../Avatar/Avatar";
+import { Comment } from "../Comment/Comment";
+
 import styles from "./Post.module.css";
 
 export function Post() {
@@ -5,8 +8,7 @@ export function Post() {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <img
-            className={styles.avatar}
+          <Avatar
             src="https://github.com/VitorC0sta.png"
           />
           <div className={styles.authorInfo}>
@@ -21,7 +23,7 @@ export function Post() {
       </header>
 
       <div className={styles.content}>
-        <p>Fala galeraa 👋</p>
+        <p>Fala galera 👋</p>
         <p>
           Acabei de subir mais um projeto no meu portifa. É um projeto que fiz
           no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀
@@ -47,6 +49,12 @@ export function Post() {
           <button type="submit">Comentar</button>
         </footer>
       </form>
+      <div className={styles.commentList}>
+        <Comment/>
+        <Comment/>
+        <Comment/>
+        <Comment/>
+      </div>
     </article>
   );
 }
