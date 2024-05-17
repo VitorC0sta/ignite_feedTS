@@ -1,8 +1,10 @@
 import { FiTrash2, FiThumbsUp } from "react-icons/fi";
 import { Avatar } from "../Avatar/Avatar";
 import styles from "./Comment.module.css";
+import { useState } from "react";
 
 export function Comment({content, onDeleteComment}) {
+  const [clapCount, setClapCount] = useState(0);
 
   function handleDeleteComment() {
     onDeleteComment(content);
@@ -27,9 +29,9 @@ export function Comment({content, onDeleteComment}) {
         </div>
 
         <footer>
-          <button>
+          <button onClick={() => setClapCount(clapCount+1)}>
             <FiThumbsUp />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{clapCount}</span>
           </button>
         </footer>
       </div>

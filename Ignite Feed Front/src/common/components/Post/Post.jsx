@@ -33,11 +33,21 @@ export function Post({ author, content, publishedAt }) {
     setNewCommentText('');
   }
 
+  function handleNewCommentInvalid(event) {
+    event.target.setCustomValidity('Esse campo é obrigatório.');
+  }
+
+  function handleNewCommentChange(event) {
+    event.target.setCustomValidity('');
+    setNewCommentText(event.target.value)
+  }
+
   function deleteComment(commentToDelete) {
     const commentsWithoutDeletedOne = comments.filter(comment => comment!==commentToDelete);
     
     setComments(commentsWithoutDeletedOne);
   }
+ const isNewCommentEmpty = newCommentText.length === 0; 
 
   return (
     <article className={styles.post}>
@@ -73,12 +83,18 @@ export function Post({ author, content, publishedAt }) {
         <textarea
           placeholder="Digite aqui"
           value={newCommentText}
-          onChange={event => setNewCommentText(event.target.value)}
+          onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
           required
         />
         
         <footer>
-          <button type="submit">Comentar</button>
+          <button
+            type="submit"
+            disabled={isNewCommentEmpty}
+          >
+            Comentar
+          </button>
         </footer>
       </form>
 
